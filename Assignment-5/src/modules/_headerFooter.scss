@@ -1,0 +1,128 @@
+header {
+        width:inherit;
+        @include clearfix;
+        text-align:center;
+        padding-top:40px;
+
+        #header-image  {
+                        @include backgroundImage($background-header-img,false, no-repeat, center, contain);
+                        @include dimensions(auto, 100%);
+                        padding-top: 70%;
+                        margin-bottom: 50px;
+
+                        
+                        @include break(767px){
+                                margin-bottom:100px;
+                                } 
+                                @include break(459px){
+                                margin-bottom:80px;
+                                } 
+                }
+
+        h1 {
+                color:$red;
+                font-weight:100;
+                font-size:4rem;
+                line-height:0;
+                        
+                @include break(959px){
+                font-size:3em;
+                }
+                @include break(767px){
+                        font-size:2em;
+                } 
+         }
+        h2 {
+                color:$white;
+                font-weight:900;
+                font-size:2.5em;
+                line-height:0;
+                padding-top: 10px;
+                margin-bottom:70px;
+
+                @include break(959px){
+                        font-size:2.0em;
+                }
+                @include break(767px){
+                        font-size:1.5em;
+                } 
+                @include break(459px){
+                        font-size:1.4em;
+                } 
+
+        }
+        h3 {
+                color:$grey;
+                font-weight:400;
+                font-size:2em;
+                line-height:0;
+                margin-bottom:50px;
+
+                @include break(959px){
+                        font-size:2.0em;
+                }
+                @include break(767px){
+                        font-size:1.5em;
+                } 
+                @include break(459px){
+                        font-size:1.4em;
+                } 
+        }     
+               
+}
+
+.greybar {
+        background-color: $color-greybar-footer;
+        @include dimensions(90px, 100%);
+        @include clearfix;
+        padding-top: 30px;
+        
+        @include break(459px){
+            display:none;
+        } 
+}
+
+footer {    
+        background:$color-background-footer;
+        @include dimensions(120px, 100%);
+        text-align:center;
+        color: $white;
+        padding-top:50px;
+    
+        @include break(459px){
+            text-align:center;
+        } 
+        
+        p{
+            @include break(459px){
+                @include setFloat(none);
+                margin:0;
+            } 
+        }
+        img {        
+            @include break(459px){
+                @include setFloat(none);
+                margin:0;
+            } 
+        }
+}
+    
+.social-media {
+            @include dimensions(auto, 165px);
+            @include marginPadding(0 auto, false);
+    
+            %div {
+                @include setFloat(left);
+                margin-right:5px;
+            }
+            a {
+                display:block;
+                @include dimensions(36px, 36px);
+                text-indent:-9999px;
+            }
+            .one {@extend %div; background:$social-media-img 0 0;}
+            .two {@extend %div; background:$social-media-img (0 - 38px) 0;}
+            .three {@extend %div; background:$social-media-img (0 - (19px * 4)) 0;}
+            .four {@extend %div; background:$social-media-img (0 - (57px * 2)) 0;}
+}
+    

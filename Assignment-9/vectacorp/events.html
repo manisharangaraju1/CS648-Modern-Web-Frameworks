@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery Events</title>
+    <link href="styles/normalize.css" type="text/css" rel="stylesheet">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+
+    //16 Used the .click() method to display an alert message 
+    createButton(1);
+
+    $("#button1").click(function(){
+        window.alert("You just clicked a button!");
+    });
+
+    //17 Attach the click event using the .bind() method to display an alert message
+    createButton(2);
+
+    $("#button2").bind("click", function(){
+        window.alert("You just clicked a button!");
+    });
+
+    //18 Attach the click event using the .on() method to display an alert message
+    createButton(3);
+
+    $("#button3").on("click", function(){
+        window.alert("You just clicked a button!")
+    });
+
+    //19 Attach the click event to both buttons using a single handler using the .on() method
+    createButton(4);
+    createButton(5);
+
+    $("#button5, #button4").on("click", function(){
+        window.alert("You just clicked a button!")
+    });
+
+    function createButton(button) {
+            $("body").append(`<button id=\'button${button}'\> Button ${button}</button><br/>`)
+            $(`#button-${button}`).css("margin", "10px 0 10px 0");
+    }
+
+    //20 Mouseenter and Mouseleave events using the .on() method
+    let div = document.createElement("div");
+    div.setAttribute("id","div_css");
+    $("body").append(div);
+    $("#div_css").css({
+            "width": "400px",
+            "height": "400px",
+            "background-color": "gray",
+        })
+
+
+
+    //21 Display within the span tag when the user enters the div, leaves the div, or clicks on the div.
+
+    let span = document.createElement("span") 
+    span.setAttribute('id','span')
+    span.textContent = "Span Added!"
+    $("body").append(span);
+
+
+    $("#div_css").on({
+        mouseenter: function() {
+            alert("Mouse entered the div!");
+            $("#span").text("Mouse entered the div!");
+        },
+        mouseleave: function() {
+            alert("Mouse left the div!");
+            $("#span").text("Mouse left the div!");
+        },
+        click: function() {
+            alert("You just clicked inside the div!");
+            $("#span").text("You just clicked inside the div!");
+        }
+    });
+
+
+    //22 Create a link within the web page and set it’s href attribute to browse to modulemedia.com. When the user clicks the link, first, prevent it from redirecting to that web site. Second, programmatically style the link so that its color changes to red. Third, display the name of the node that triggered the event within an alert box.
+    let link = document.createElement("a")
+    link.setAttribute("href","https://www.modulemedia.com") 
+    link.setAttribute("id","media_link") 
+    link.textContent = "Module Media"
+    $("body").append(link,"<br><br>")
+    $("#media_link").on('click', (event) => {
+            event.preventDefault();
+            $("#media_link").css("color", "red");
+            alert(event.target);
+    });
+
+    //23 Create a div tag within the web page. As the user resizes the browser, display the width and height of the browser window within the div tag.
+
+    let div_window_size = document.createElement("div")
+    div_window_size.setAttribute("id","window_size")
+    div_window_size.innerHTML = `Width : ${$(window).width()}px <br/> Height : ${$(window).height()}px`
+
+    $("body").append(div_window_size,"<br><br>")
+
+    $(window).resize(function () {
+        $("#window_size").text(`Width: ${$(window).width()} Height: ${$(window).height()}`)
+    })  
+
+    //24 Create a text field using the <input> tag. When the input has focus, set the background to a light gray color. When the input does not have focus, reset the background back to a white color.
+
+    let textfield = document.createElement("input")
+    textfield.setAttribute('id',"focus")
+    $("body").append(textfield,"<br/><br/>")
+
+    $("#focus").focusin(() => {
+        $("#focus").css("background-color", "gray");
+    })
+
+    $("#focus").focusout(() => {
+        $("#focus").css("background-color", "white");
+    })
+
+    //25. Add a form tag within a web page complete with 2 input fields: one that collects name and a second that collects an email. Add a submit button. When the user submits the form, if any one of the two fields is left empty, display an alert box to the user indicating that the fields are required. Give the field that the user left empty a red border. If both fields have values in them, set their borders to green.
+
+    let form = document.createElement("form")
+    form.setAttribute("id","form")
+
+    let nameInput = document.createElement("input")
+    nameInput.setAttribute('id','name')
+    nameInput.placeholder = "Name"
+    nameInput.setAttribute('style','display:block;margin-top: 20px')
+
+    form.appendChild(nameInput)
+
+    let emailInput = document.createElement("input")
+    emailInput.setAttribute('id','email')
+    emailInput.placeholder = "Email"
+    emailInput.setAttribute('style','display:block; margin-top: 20px')
+
+    form.appendChild(emailInput)
+
+    let submit = document.createElement("button")
+    submit.textContent = "Submit"
+    submit.setAttribute('id','submit')
+    submit.setAttribute('style','display:block;margin-top: 20px')
+
+    form.appendChild(submit)
+    $("body").append(form,"<br><br>")
+
+    $("#form").on("submit",(event)=>{
+            event.preventDefault();
+            let error_css = {
+                "border" : "2px solid red"
+            } , success_css = {
+                "border" : "2px solid green"
+            }
+        
+            var isValid = true
+            var errorMessage = ""
+            
+            for(let input of [$("#name"),$("#email")]){
+                if(input.val() == "")
+                {
+                    isValid = false
+                    input.css(error_css)
+                    errorMessage += ` Please enter ${input.attr('placeholder')} \n`
+                }else{
+                    input.css(success_css)
+                }
+                
+                if(isValid == false)
+                    window.alert(errorMessage)
+            }
+        })
+    });   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

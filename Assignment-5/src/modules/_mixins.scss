@@ -1,0 +1,72 @@
+@mixin dimensions($height, $width){
+    height:$height; 
+    width:$width;
+}
+
+@mixin setFloat($float){
+    float: $float;   
+}
+
+@mixin clearfix {
+      clear: both;
+  }
+
+@mixin marginPadding($margin: false, $padding:false){
+    @if $margin {margin:$margin}; 
+    @if $padding {padding:$padding};
+}
+
+@mixin header-nav($float: left, $width: 500px, $height: 190px, $color: $red)
+{
+    float:$float;
+    text-align:right;
+    width: $width;
+    height: $height;
+
+	ul {
+        list-style-type:none;
+        margin-top:95px;
+
+		li {
+            display:inline;
+            font-size:0.9em;
+            margin-right:8px;
+
+            @include break(959px){
+                font-size:1em;margin:0 10px;
+            }
+            @include break(767px){
+                font-size:0.8em;margin:0 5px;
+            }
+            
+			a{
+                color: $color;
+                text-decoration:none;
+                letter-spacing:-0.01em;
+			}
+        }
+        @include break(960px){
+            margin-top:0;
+        }
+	}
+}
+
+@mixin break($arg)
+{
+    @media screen and (max-width: $arg)
+    {
+        @content;
+    }
+}
+
+@mixin backgroundImage($image: false, $backgroundColor: false, $repeat: false, $position: false, $size: false, $height: false, $width: false)
+{
+    @if $backgroundColor {background-color: $backgroundColor};
+    @if $image {background: $image};
+    @if $repeat {background-repeat: $repeat};
+    @if $position {background-position: $position};
+    @if $size {background-size: $size};
+    @if $height {height: $height};
+    @if $width {width: $width};
+
+}

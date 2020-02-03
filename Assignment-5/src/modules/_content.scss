@@ -1,0 +1,88 @@
+#headline {
+    text-align:center;
+    @include marginPadding(0 auto, false);
+    background-color: $color-background;
+    @include dimensions(130px, 100%);
+
+    h1{
+        color:$white;
+        font-size:2.5em;
+        font-weight:100;
+        padding-top:50px;
+
+        @include break(767px){
+            font-size:2em;
+            padding-top:50px;
+        } 
+        @include break(459px){
+            font-size:1.5em;
+            padding-top:30px;
+        } 
+    }
+}
+
+#content {
+    @include dimensions(auto, 940px);
+    @include marginPadding(20px auto, false);
+
+    @include break(959px){
+    width:inherit;
+    }
+
+    h3{
+        color: $grey;
+        font-size:2em;
+        font-weight:400;
+
+        @include break(459px){
+            font-size:1.6em;
+        }
+    }
+
+    #products{
+        @include dimensions(auto, 49%);
+        @include setFloat(left);
+        
+            @include break(959px){
+                @include dimensions(auto, 46%);
+                @include marginPadding(0 5%, false);
+            } 
+            @include break(767px){
+                @include dimensions(auto, 96%);
+                @include marginPadding(0 2%, false);
+                @include setFloat(none);
+            } 
+    }
+
+    img{
+        @include dimensions(170px, auto);
+        @include setFloat(left);
+        margin-right:20px;
+        @include break(459px){
+            display:none;
+        }
+    }
+
+    h4{
+        line-height:1em;
+    }
+
+    article{
+        margin-bottom: 40px;
+    }
+    
+    #testimonials{
+        @include dimensions(auto, 49%);
+        @include setFloat(right);
+
+        @include break(959px){
+            @include dimensions(auto, 46%);
+            @include marginPadding(0 2%, false);
+        } 
+        @include break(767px){
+            @include dimensions(auto, 96%);
+            @include marginPadding(0 2%, false);
+            @include setFloat(none);
+        } 
+    }
+}

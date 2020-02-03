@@ -1,0 +1,96 @@
+body {
+    width: 960px;
+    margin-left: 20px;
+    font: 1em "Arial", Helvetica, sans-serif;
+    line-height: 2em;
+}
+
+ul:first-of-type {
+    list-style-type: none;
+    padding: 0;
+}
+
+h2 {
+    padding-left: 6.5px;
+    background-color: #dfe3e6;
+    border: 2px solid #929ca4;
+    border-radius: 7.5px;
+}
+
+a, h2 {
+    color: #cc1c0d;
+}
+
+img {
+    float: left;
+    margin-right: 5px;
+    padding: 10px 0px 10px 0px;
+}
+
+#vconvert, #vprospect, #vretain {
+    font-weight: bold;
+}
+
+section > img {
+    border: 2px solid red;
+    border-radius: 45px;
+    margin: 0 10px 0 10px;
+    padding: 0;
+}
+
+section > p {
+    margin-left: 15px;
+}
+
+ul > ul {
+    margin-left: 35px;
+}
+
+div {
+    display: table-cell;
+    float: left;
+    margin: 0 0 18.5px 8.5px;
+    vertical-align: top;
+    border: 1px solid gray;
+    border-radius: 4.5px;
+    text-align: center;
+    width: 23.5%;
+    height: fit-content;
+}
+
+.pricing > div > hr {
+    margin-top: 90px;
+    height: 10px;
+}
+
+.pricing {
+    text-align: center;
+    clear: both;
+}
+.pricing > div:nth-of-type(1) > hr {
+    background: #cc1c0d;
+}
+
+.pricing > div:nth-of-type(2) > hr {
+    background: #37a4a4;
+}
+
+.pricing > div:nth-of-type(3) > hr {
+    background: #685288;
+}
+
+.pricing > div:nth-of-type(4) > hr {
+    background: black;
+}
+
+div > p:nth-child(1) {
+    float: left;
+    padding: 35px 0 0 50px;
+    margin: 0;
+}
+
+div > img {
+    float: left;
+    padding: 25px 0 0 75px;
+    margin: 0;
+}

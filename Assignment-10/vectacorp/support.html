@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to Vecta Corp.</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+	<script src="http://malsup.github.io/min/jquery.cycle2.min.js"></script>
+	<script src="js/jquery.mobilemenu.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$('#responsive-menu').mobileMenu();
+			$( document ).tooltip();
+		});
+	</script>
+</head>
+<body>
+	<main class="container">
+		<figure class="three columns">
+			<img src="images/logo.gif" class="scale-with-grid" alt="">
+		</figure>
+		
+		<nav class="thirteen columns">
+			<ul id="responsive-menu">
+				<li><a href="index.html" title="Home">Home</a></li>
+				<li><a href="aboutus.html" title="About Us">About Us</a></li>
+				<li><a href="solutions.html" title="Solutions">Solutions</a></li>
+				<li><a href="support.html" title="Support">Support</a></li>
+				<li><a href="contactus.html" title="Contact Us">Contact Us</a></li>
+			</ul>
+		</nav>
+		
+		<header class="sixteen columns">
+			<img src="images/header.gif" class="scale-with-grid" alt="">
+		</header>
+		
+		<section id="welcome" class="sixteen columns">
+			<h4>Support</h4>
+			<p>Find the latest technical resources including articles, tips, patches, documentation and more and discuss ideas with your peers. These communities are your convenient one-stop shop for vSupport. Still have a question? <a href="mailto:support@vectacorp.com?Subject=I%20need%20help...">Send us an email</a>.</p>
+		</section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+main>* {
+  background: silver;
+}
+
+main {
+  display: grid;
+  width: 960px;
+  margin: 20px auto 0 auto;
+  grid: repeat(9, 1fr) / repeat(12, 1fr);
+  gap: 15px;
+}
+
+header {
+  grid-area: 1 / 1 / 2 / 4;
+  height : 90px;
+}
+
+nav {
+  display: grid;
+  grid-area: 1 / 7 / 2 / 13;
+  align-self: center;
+  align-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(4, auto);
+  height: 45px;
+}
+
+footer {
+  grid-area: 9 / 1 / 13 / span 12;
+  text-align: center;
+  padding: 12px;
+  height: 16px;
+}
+
+.content {
+  background: white;
+  grid-area: 2 / 1 / 6 / 13;
+}
+
+h1{
+  font-size: 2.5rem;
+}
+
+.grids {
+  margin-top: 14px;
+  background: white;
+  display: grid;
+  grid-area: 4/1 / 9/13;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
+}
+
+.grid {
+  size: auto;
+  background: silver;
+}

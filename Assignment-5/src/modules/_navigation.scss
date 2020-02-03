@@ -1,0 +1,24 @@
+figure {
+        @include backgroundImage($background-logo-img, false, no-repeat, 0 50px, auto);
+        @include dimensions(190px, 400px);
+        @include setFloat(left);
+        display:block;
+        @include marginPadding(0, false);
+
+        @include break(959px){
+                width:inherit;height:140px;@include setFloat(none);background-position:center;
+        }
+        @include break(459px){
+                background-size:contain;height:100px;
+        }  
+}
+nav {
+        @include header-nav();
+
+        @include break(959px){
+                width:inherit;height:50px;@include setFloat(none);text-align:center;
+        }
+        @include break(459px){
+                font-size:0.8em;margin:0 5px;
+        } 
+}

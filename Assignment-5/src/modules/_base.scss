@@ -1,0 +1,22 @@
+/* BASIC STYLES */
+body {
+    @include backgroundImage($background-img, $white, repeat-x);
+    font-size:1em;
+    line-height:2em;
+    font-family: $font-body;
+    @include marginPadding(0, false);
+}
+main {
+    @include dimensions(auto, 940px);
+    @include marginPadding(0 auto, false);
+
+    @include break(770px){
+        width:460px;
+    }
+    @include break(959px){
+        width:770px;
+    }
+    @include break(460px){
+        width:300px;
+    }   
+}
